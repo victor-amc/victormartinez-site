@@ -1,21 +1,17 @@
 import React from "react";
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 import styled from "@emotion/styled";
 
 const NavStyled = styled.nav`
 	display: flex;
 	justify-content: center;
-	padding-bottom: 3rem;
-
-	@media (min-width: 768px) {
-		padding-bottom: 0;
-	}
+	padding-bottom: 0;
 `;
 
-const LinkStyled = styled(Link)`
+const ANav = styled.a`
 	color: var(--fore-primary-color);
 	font-size: 1.6rem;
-	font-weight: 700;
+	font-weight: 400;
 	line-height: 1rem;
 	text-decoration: none;
 	padding: 1rem;
@@ -25,26 +21,33 @@ const LinkStyled = styled(Link)`
 		margin-right: 0;
 	}
 
+	&.nav-page {
+		&:hover {
+			transition: all 0.3s ease 0;
+			color: var(--primary-color);
+		}
+	}
+
 	&.current-page {
 		border-bottom: 2px solid var(--fore-primary-color);
 	}
 `;
 
-const Navigation = ({ color }) => {
+const Navigation = () => {
 	return (
 		<NavStyled>
-			<LinkStyled to="/" activeClassName="current-page">
+			<ANav href="/#home" className={`nav-page`}>
 				Home
-			</LinkStyled>
-			<LinkStyled to="#about" activeClassName="current-page">
+			</ANav>
+			<ANav href="/#about" className={`nav-page`}>
 				About
-			</LinkStyled>
-			<LinkStyled to="#work" activeClassName="current-page">
+			</ANav>
+			<ANav href="/#work" className={`nav-page`}>
 				Work
-			</LinkStyled>
-			<LinkStyled to="#work" activeClassName="current-page">
+			</ANav>
+			<ANav href="/#contact" className={`nav-page`}>
 				Let's Talk
-			</LinkStyled>
+			</ANav>
 		</NavStyled>
 	);
 };

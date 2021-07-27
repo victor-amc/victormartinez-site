@@ -10,7 +10,7 @@ const LinkStyled = styled(Link)`
 `;
 
 const FooterStyled = styled.footer`
-	background-color: rgba(44, 62, 80);
+	background-color: var(--back-tertiary-color);
 	margin-top: 5rem;
 	padding: 1rem;
 `;
@@ -29,7 +29,7 @@ const FooterDiv = styled.div`
 const FooterParagraph = styled.p`
 	text-align: center;
 	color: var(--back-primary-color);
-	background-color: var(--secondary-color);
+	background-color: var(--back-secondary-color);
 	font-size: 1.4rem;
 	margin: 0;
 	padding: 1rem;
