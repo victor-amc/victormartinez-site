@@ -1,7 +1,12 @@
 import React from "react";
-import Navigation from "./Navigation";
 import { Link } from "gatsby";
 import styled from "@emotion/styled";
+
+import IconFacebook from "../images/socialmedia/facebook.svg";
+import IconGithub from "../images/socialmedia/github.svg";
+import IconInstagram from "../images/socialmedia/instagram.svg";
+import IconLinkedin from "../images/socialmedia/linkedin.svg";
+import IconYoutube from "../images/socialmedia/youtube.svg";
 
 const LinkStyled = styled(Link)`
 	color: var(--primary-color);
@@ -10,29 +15,65 @@ const LinkStyled = styled(Link)`
 `;
 
 const FooterStyled = styled.footer`
-	background-color: var(--back-tertiary-color);
+	background-color: var(--back-secondary-color);
 	margin-top: 5rem;
 	padding: 1rem;
 `;
 
 const FooterDiv = styled.div`
-	max-width: 1200px;
+	width: min(80vw, 1200px);
 	margin: 0 auto;
-
-	@media (min-width: 768px) {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 `;
 
 const FooterParagraph = styled.p`
 	text-align: center;
 	color: var(--back-primary-color);
-	background-color: var(--back-secondary-color);
 	font-size: 1.4rem;
 	margin: 0;
 	padding: 1rem;
+`;
+
+const FooterSocialMediaContainer = styled.div`
+	ul {
+		display: flex;
+		justify-content: space-between;
+
+		.btn-sm {
+			height: 2.4em;
+			width: 2.4em;
+			opacity: 0.4;
+			margin: 2px;
+			transform: scale3d(0.8, 0.8, 0.8);
+			filter: invert(100%) sepia(0%) saturate(300%) hue-rotate(16deg)
+				brightness(115%) contrast(85%);
+
+			&:hover {
+				opacity: 1;
+				transition: opacity 0.3s linear;
+				animation: buttonScale 0.3s;
+
+				@keyframes buttonScale {
+					0% {
+						transform: scale3d(0.8, 0.8, 0.8);
+					}
+					50% {
+						transform: scale3d(1, 1, 1);
+					}
+					100% {
+						transform: scale3d(0.8, 0.8, 0.8);
+					}
+				}
+			}
+
+			&:active {
+				filter: invert(20%) sepia(75%) saturate(3000%) hue-rotate(296deg)
+					brightness(90%) contrast(85%);
+			}
+		}
+	}
 `;
 
 const Footer = ({ title }) => {
@@ -42,17 +83,53 @@ const Footer = ({ title }) => {
 		<>
 			<FooterStyled>
 				<FooterDiv>
-					<Navigation />
+					<FooterSocialMediaContainer>
+						<ul>
+							<li>
+								<LinkStyled
+									to="https://www.linkedin.com/in/victoramc/"
+									target="_blank"
+								>
+									<IconLinkedin className="btn-sm btn-lkdin" />
+								</LinkStyled>
+							</li>
+							<li>
+								<LinkStyled to="https://github.com/victor-amc" target="_blank">
+									<IconGithub className="btn-sm btn-repo" />
+								</LinkStyled>
+							</li>
+							<li>
+								<LinkStyled
+									to="https://www.facebook.com/victor.alejandro.mc/"
+									target="_blank"
+								>
+									<IconFacebook className="btn-sm btn-face" />
+								</LinkStyled>
+							</li>
+							<li>
+								<LinkStyled
+									to="https://www.instagram.com/victoralejandromc/"
+									target="_blank"
+								>
+									<IconInstagram className="btn-sm btn-insta" />
+								</LinkStyled>
+							</li>
+							<li>
+								<LinkStyled
+									to="https://www.youtube.com/channel/UCkyZq4nLFNDHadzQZMYtwNw"
+									target="_blank"
+								>
+									<IconYoutube className="btn-sm btn-yout" alter="Youtube" />
+								</LinkStyled>
+							</li>
+						</ul>
+					</FooterSocialMediaContainer>
 
-					<LinkStyled to="/">
-						<h1>Footer</h1>
-					</LinkStyled>
+					<FooterParagraph>
+						&#169; {title} {year}
+					</FooterParagraph>
 				</FooterDiv>
 			</FooterStyled>
-
-			<FooterParagraph>
-				&#169; {title} {year}
-			</FooterParagraph>
 		</>
 	);
 };

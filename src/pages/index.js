@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import HeroImage from "../components/HeroImage";
 import About from "../components/About";
 import Timeline from "../components/Timeline";
+import Skills from "../components/Skills";
 import styled from "@emotion/styled";
 
 const H2 = styled.h2`
@@ -18,7 +19,7 @@ const IndexPage = () => {
 			<HeroImage />
 			<About />
 			<Timeline />
-			<H2>Test</H2>
+			<Skills />
 		</Layout>
 	);
 };

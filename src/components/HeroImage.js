@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { graphql, useStaticQuery } from "gatsby";
-// import { GatsbyImage } from "gatsby-plugin-image";
 import BackgroundImage from "gatsby-background-image";
 import styled from "@emotion/styled";
 import {
@@ -9,7 +8,14 @@ import {
 } from "../componentsStyled/containers";
 
 const HeroBackgroundImage = styled(BackgroundImage)`
-	height: 900px;
+	height: 100vh;
+	/* background-position: top center;
+	background-attachment: scroll; */
+	/* background-repeat: no-repeat;
+	background-attachment: fixed; */
+	/* -webkit-transform: translateZ(-999px);
+	transform: translateZ(-999px);
+	z-index: 3; */
 `;
 
 const UlHero = styled.ul`
@@ -26,23 +32,23 @@ const UlHero = styled.ul`
 	h1 {
 		font-size: 4rem;
 		color: var(--primary-color);
+		margin: 0px;
 		line-height: 80%;
-		border-bottom: 4px solid var(--primary-color);
 		transition: all 0.3s ease 0s;
-
-		@media (min-width: 992px) {
-			font-size: 5.8rem;
-		}
 	}
 
 	.h1-left {
 		text-align: left;
+		margin: 0;
 		transform: translateY(-210px);
+		transition: all 0.5s ease 0s;
 	}
 
 	.h1-right {
 		text-align: right;
+		margin: 0;
 		transform: translateY(320px);
+		transition: all 0.5s ease 0s;
 	}
 
 	/* Desktop */
@@ -59,13 +65,26 @@ const UlHero = styled.ul`
 
 		.h1-left {
 			width: auto;
+			margin-left: 0px;
 			transform: translate(0px, 0px);
 		}
 
 		.h1-right {
 			width: auto;
 			text-align: right;
+			margin-right: 0px;
 			transform: translate(0px, 0px);
+		}
+	}
+
+	/* Tablet */
+	@media (min-width: 1100px) {
+		.h1-left {
+			margin-left: 100px;
+		}
+
+		.h1-right {
+			margin-right: 100px;
 		}
 	}
 `;
@@ -75,7 +94,7 @@ const HeroImage = () => {
 		query {
 			image: file(relativePath: { eq: "HeroPicture.jpg" }) {
 				sharp: childImageSharp {
-					fluid(maxWidth: 1200, quality: 100) {
+					fluid(maxWidth: 2400, quality: 100) {
 						...GatsbyImageSharpFluid_withWebp
 					}
 				}
@@ -83,15 +102,37 @@ const HeroImage = () => {
 		}
 	`);
 
+	const imageRef = useRef();
+
+	useEffect(() => {
+		const handleScroll = () => {
+			if (!imageRef) return;
+			console.log(imageRef.current);
+			console.log(window.pageYOffset);
+			const factor = 0.5;
+			const yvalue = factor * window.pageYOffset;
+			// imageRef.current.imageRef.scrollTop = yvalue;
+			// imageRef.current.imageRef.style.backgroundPosition =
+			// 	"center " + yvalue + "px";
+			imageRef.current.backgroundStyles.backgroundPosition =
+				"center " + yvalue + "px";
+			// imageRef.current.updater.enqueueForceUpdate();
+		};
+
+		window.addEventListener("scroll", handleScroll, { passive: true });
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+
 	return (
 		<HeroBackgroundImage
 			id="home"
 			tag="section"
 			alt="victor martinez"
+			ref={imageRef}
 			fluid={image.sharp.fluid}
 			fadeIn="soft"
 		>
-			<SectionContainer id="home" bgColor="transparent" height="100%">
+			<SectionContainer id="home" bgColor="transparent" height="100vh">
 				<ColumnsContainer>
 					<UlHero>
 						<li className="h1-left">

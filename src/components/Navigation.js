@@ -36,15 +36,14 @@ const ANav = styled.a`
 const Navigation = () => {
 	return (
 		<NavStyled>
-			<ANav href="/#home" className={`nav-page`}>
-				Home
-			</ANav>
-			<ANav href="/#about" className={`nav-page`}>
-				About
-			</ANav>
-			<ANav href="/#work" className={`nav-page`}>
+			<ANav href="/work" className={`nav-page`}>
 				Work
 			</ANav>
+
+			<ANav href="/thoughts" className={`nav-page`}>
+				Blog
+			</ANav>
+
 			<ANav href="/#contact" className={`nav-page`}>
 				Let's Talk
 			</ANav>

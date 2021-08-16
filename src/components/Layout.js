@@ -9,7 +9,7 @@ const Layout = (props) => {
 		<>
 			<Global
 				styles={css`
-					/* @font-face {
+					@font-face {
 						font-family: "Signux";
 						src: url("../fonts/signux/Signux.eot");
 						src: url("../fonts/signux/Signux.eot?#iefix")
@@ -20,7 +20,7 @@ const Layout = (props) => {
 						font-weight: normal;
 						font-style: normal;
 						font-display: swap;
-					} */
+					}
 
 					@font-face {
 						font-family: "Bebas Kai";
@@ -44,13 +44,14 @@ const Layout = (props) => {
 
 						--fore-primary-color: #303030;
 						--back-primary-color: #f5f5f5;
-						--back-secondary-color: rgb(33, 44, 55);
-						--back-tertiary-color: rgba(44, 62, 80);
+						--back-secondary-color: rgb(39, 39, 39);
+						--back-tertiary-color: rgba(69, 69, 69);
 						--back-quaternary-color: #999999;
 
 						--font-title: "Bebas Kai", sans-serif;
 						--font-body: "Poppins", sans-serif;
 						--font-special: "Pathway Gothic One", sans-serif;
+						--font-alter: "Cardo", serif;
 						--font-footnotes: "Nunito Sans", sans-serif;
 					}
 
@@ -67,8 +68,8 @@ const Layout = (props) => {
 					}
 
 					body {
-						font-size: 18px;
-						font-size: 1.8rem;
+						font-size: 16px;
+						font-size: 1.6rem;
 						line-height: 1.5;
 						font-family: var(--font-body);
 						margin: 0;
@@ -81,7 +82,8 @@ const Layout = (props) => {
 						line-height: 85%;
 					}
 					h1 {
-						font-size: 4.5rem;
+						font-size: 3rem;
+						margin-bottom: 5rem;
 					}
 					h1,
 					h2 {
@@ -116,7 +118,7 @@ const Layout = (props) => {
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 				<link
-					href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;700&family=Poppins:wght@100;200;400;700&family=Pathway+Gothic+One&display=swap"
+					href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;700&family=Poppins:wght@100;200;400;700&family=Pathway+Gothic+One&family=Cardo&display=swap"
 					rel="stylesheet"
 				></link>
 				<meta

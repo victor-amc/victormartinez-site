@@ -27,7 +27,7 @@ const HeaderStyled = styled.header`
 
 	&.container-transparent {
 		background-color: transparent;
-		box-shadow: 0px 0px 0px rgba(250, 250, 250, 0);
+		box-shadow: 0px 0px 0px transparent;
 	}
 `;
 
@@ -36,7 +36,7 @@ const HeaderDiv = styled.div`
 	width: min(80vw, 1200px);
 	padding: 1rem;
 
-	@media (min-width: 768px) {
+	@media only screen and (min-width: 768px) {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -46,7 +46,7 @@ const HeaderDiv = styled.div`
 const H1 = styled.h1`
 	font-size: 2.5rem;
 	padding: 0rem 1.5rem 0 1.5rem;
-	border-bottom: 4px solid var(--fore-primary-color);
+	/* border-bottom: 4px solid var(--fore-primary-color); */
 	padding: 0;
 	margin: 0 0 0 0;
 
@@ -56,25 +56,6 @@ const H1 = styled.h1`
 `;
 
 const Header = ({ bgTransThreshold }) => {
-	// const threshold = [0, 0.1];
-	// const rootMargin = "500px 0px 0px 0px";
-
-	// const [setRefsInView, entries] = useInView({ rootMargin });
-	// const headerRef = useRef(null);
-
-	// useEffect(() => {
-	// 	setRefsInView([headerRef]);
-	// }, [headerRef]);
-
-	// //intersection observer
-	// useEffect(() => {
-	// 	entries.forEach((entry) => {
-	// 		console.log(entry);
-	// 		console.log(entry.intersectionRatio);
-	// 		console.log(entry.isIntersecting);
-	// 	});
-	// }, [entries]);
-
 	const [scrollOffset, setScrollOffset] = useState(0);
 	bgTransThreshold = bgTransThreshold === undefined ? -1 : bgTransThreshold;
 

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 
 //css notes
 // flex justify content: https://www.w3schools.com/cssref/playit.asp?filename=playcss_justify-content&preval=flex-start
@@ -26,6 +27,17 @@ export const SectionContainer = styled.div(
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+`
+);
+
+export const VerticalContainerWidth = styled.div(
+	(props) => `
+	width: min(80%, ${props.maxWidth ? props.maxWidth : "1200px"});
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
 `
 );
 
