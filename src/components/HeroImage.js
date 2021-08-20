@@ -8,14 +8,9 @@ import {
 } from "../componentsStyled/containers";
 
 const HeroBackgroundImage = styled(BackgroundImage)`
-	height: 100vh;
-	/* background-position: top center;
-	background-attachment: scroll; */
-	/* background-repeat: no-repeat;
-	background-attachment: fixed; */
-	/* -webkit-transform: translateZ(-999px);
-	transform: translateZ(-999px);
-	z-index: 3; */
+	height: max(200px, 100vh);
+	background-size: cover;
+	background-repeat: no-repeat;
 `;
 
 const UlHero = styled.ul`
@@ -40,14 +35,14 @@ const UlHero = styled.ul`
 	.h1-left {
 		text-align: left;
 		margin: 0;
-		transform: translateY(-210px);
+		transform: translateY(-60px);
 		transition: all 0.5s ease 0s;
 	}
 
 	.h1-right {
 		text-align: right;
 		margin: 0;
-		transform: translateY(320px);
+		transform: translateY(40vh);
 		transition: all 0.5s ease 0s;
 	}
 
@@ -56,7 +51,6 @@ const UlHero = styled.ul`
 		h1 {
 			width: 200px;
 			word-wrap: normal;
-			border-bottom: none;
 		}
 
 		li {
@@ -66,25 +60,14 @@ const UlHero = styled.ul`
 		.h1-left {
 			width: auto;
 			margin-left: 0px;
-			transform: translate(0px, 0px);
+			transform: translate(0px, 100px);
 		}
 
 		.h1-right {
 			width: auto;
 			text-align: right;
 			margin-right: 0px;
-			transform: translate(0px, 0px);
-		}
-	}
-
-	/* Tablet */
-	@media (min-width: 1100px) {
-		.h1-left {
-			margin-left: 100px;
-		}
-
-		.h1-right {
-			margin-right: 100px;
+			transform: translate(0px, 100px);
 		}
 	}
 `;
@@ -102,33 +85,11 @@ const HeroImage = () => {
 		}
 	`);
 
-	const imageRef = useRef();
-
-	useEffect(() => {
-		const handleScroll = () => {
-			if (!imageRef) return;
-			console.log(imageRef.current);
-			console.log(window.pageYOffset);
-			const factor = 0.5;
-			const yvalue = factor * window.pageYOffset;
-			// imageRef.current.imageRef.scrollTop = yvalue;
-			// imageRef.current.imageRef.style.backgroundPosition =
-			// 	"center " + yvalue + "px";
-			imageRef.current.backgroundStyles.backgroundPosition =
-				"center " + yvalue + "px";
-			// imageRef.current.updater.enqueueForceUpdate();
-		};
-
-		window.addEventListener("scroll", handleScroll, { passive: true });
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
-
 	return (
 		<HeroBackgroundImage
 			id="home"
 			tag="section"
 			alt="victor martinez"
-			ref={imageRef}
 			fluid={image.sharp.fluid}
 			fadeIn="soft"
 		>

@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
 
 //css notes
 // flex justify content: https://www.w3schools.com/cssref/playit.asp?filename=playcss_justify-content&preval=flex-start

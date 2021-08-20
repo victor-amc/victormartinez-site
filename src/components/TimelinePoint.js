@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "gatsby";
 import styled from "@emotion/styled";
+import useInView from "../hooks/useInView";
 
 const LinkStyled = styled(Link)`
 	color: var(--primary-color);
@@ -9,6 +10,7 @@ const LinkStyled = styled(Link)`
 `;
 
 const TimelineItem = styled.div`
+	min-height: 500px;
 	padding: 40px 0;
 	opacity: 0.3;
 	filter: blur(2px);
@@ -17,6 +19,7 @@ const TimelineItem = styled.div`
 	width: calc(50% - 40px);
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	position: relative;
 	transform: translateY(-80px);
 
@@ -25,15 +28,15 @@ const TimelineItem = styled.div`
 		letter-spacing: 3px;
 		width: 100%;
 		position: absolute;
-		color: rgba(255, 255, 255, 0.5);
+		color: var(--fore-secondary-color);
 		font-size: 13px;
 		font-family: var(--font-special);
-		border-left: 2px solid rgba(255, 255, 255, 0.5);
+		border-left: 2px solid var(--fore-secondary-color);
 		top: 70%;
 		margin-top: -5px;
-		padding-left: 15px;
+		padding-left: 20px; //15
 		opacity: 0;
-		right: calc(-100% - 56px);
+		right: calc(-100% - 40px); //-56
 	}
 
 	&:nth-of-type(even) {
@@ -43,14 +46,18 @@ const TimelineItem = styled.div`
 	&:nth-of-type(even):before {
 		right: auto;
 		text-align: right;
-		left: calc(-100% - 56px);
+		left: calc(-100% - 40px); //-56
 		padding-left: 0;
 		border-left: none;
-		border-right: 2px solid rgba(255, 255, 255, 0.5);
-		padding-right: 15px;
+		border-right: 2px solid var(--fore-secondary-color);
+		padding-right: 20px; //-15
 	}
 
-	.timeline-item-active {
+	&.inactive {
+		background-color: red;
+	}
+
+	&.active {
 		opacity: 1;
 		transform: translateY(0);
 		filter: blur(0px);
@@ -72,12 +79,15 @@ const TimelineItem = styled.div`
 		padding: 0 30px 150px 80px;
 
 		&:before {
-			left: 10px !important;
+			left: -180px !important;
+			top: 0px;
 			padding: 0 !important;
-			top: 50px;
 			text-align: center !important;
-			width: 60px;
+			transform: rotateZ(-90deg) translateX(100px);
+			width: 400px;
 			border: none !important;
+			font-size: 20px;
+			line-height: 100%;
 		}
 
 		&:last-child {
@@ -137,7 +147,9 @@ const TimelinePoint = ({ timePoint }) => {
 		timePoint;
 
 	const [arrayDuties, setArrayDuties] = useState([]);
+	const [isActive, setIsActive] = useState(false);
 
+	//DUTIES STRING TO ARRAY
 	useEffect(() => {
 		let aDuties = duties.split(";");
 		if (
@@ -147,8 +159,36 @@ const TimelinePoint = ({ timePoint }) => {
 			setArrayDuties(aDuties);
 	}, [duties]);
 
+	// INTERSECTION OBSERVER
+	const threshold = [0.7];
+	const rootMargin = "20px 0px 0px 0px";
+
+	const [setRefsInView, entries] = useInView({ rootMargin, threshold });
+	const timePointRef = useRef(null);
+
+	//set intersection observer refs
+	useEffect(() => {
+		setRefsInView([timePointRef]);
+	}, [timePointRef]);
+
+	//intersection observer
+	useEffect(() => {
+		entries.forEach((entry) => {
+			// console.log(entry.target.dataset.text + " " + entry.intersectionRatio);
+			if (entry.intersectionRatio > 0.8 && !isActive) {
+				setIsActive(true);
+			} else if (entry.intersectionRatio <= 0.8 && isActive) {
+				setIsActive(false);
+			}
+		});
+	}, [entries]);
+
 	return (
-		<TimelineItem data-text={company}>
+		<TimelineItem
+			data-text={company}
+			ref={timePointRef}
+			className={isActive && "active"}
+		>
 			<TimelineItemTitle>
 				<h1>{period}</h1>
 				<h2>{title}</h2>

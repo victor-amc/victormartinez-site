@@ -2,10 +2,14 @@ import React, { useEffect, useState, useMemo } from "react";
 import Navigation from "./Navigation";
 import { Link } from "gatsby";
 import styled from "@emotion/styled";
+import IconVM from "../images/logo-vm.svg";
 
 const LinkStyled = styled(Link)`
 	color: var(--fore-primary-color);
-	text-align: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 	text-decoration: none;
 `;
 
@@ -13,7 +17,7 @@ const HeaderStyled = styled.header`
 	background-color: var(--back-primary-color);
 	position: fixed;
 	width: 100%;
-	padding: 1rem;
+	padding: 0rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -34,25 +38,25 @@ const HeaderStyled = styled.header`
 const HeaderDiv = styled.div`
 	margin: 0;
 	width: min(80vw, 1200px);
-	padding: 1rem;
+	padding: 0rem;
 
-	@media only screen and (min-width: 768px) {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 `;
 
 const H1 = styled.h1`
-	font-size: 2.5rem;
-	padding: 0rem 1.5rem 0 1.5rem;
-	/* border-bottom: 4px solid var(--fore-primary-color); */
-	padding: 0;
-	margin: 0 0 0 0;
+	font-size: 1.2rem;
+	font-family: var(--font-logo);
+	font-weight: normal;
+	margin: 0;
+`;
 
-	span {
-		color: var(--primary-color);
-	}
+const Logo = styled(IconVM)`
+	width: 50px;
+	height: 50px;
+	padding: 0;
+	margin: 0;
 `;
 
 const Header = ({ bgTransThreshold }) => {
@@ -76,9 +80,8 @@ const Header = ({ bgTransThreshold }) => {
 		<HeaderStyled className={isTransparent && "container-transparent"}>
 			<HeaderDiv>
 				<LinkStyled to="/">
-					<H1>
-						Victor <span>Martinez</span>
-					</H1>
+					<Logo />
+					<H1>Victor Martinez</H1>
 				</LinkStyled>
 
 				<Navigation />

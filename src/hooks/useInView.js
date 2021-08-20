@@ -3,7 +3,9 @@ import { useState, useRef, useEffect } from "react";
 //for all entries functions: https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry
 
 const useInView = ({ root = null, rootMargin, threshold = 0 }) => {
+	//output
 	const [entries, updateEntries] = useState([]);
+	// input
 	const [refsInView, setRefsInView] = useState([]); //instead of ref to avoid constant updating
 
 	//init

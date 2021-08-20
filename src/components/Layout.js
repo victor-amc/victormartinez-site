@@ -10,13 +10,13 @@ const Layout = (props) => {
 			<Global
 				styles={css`
 					@font-face {
-						font-family: "Signux";
-						src: url("../fonts/signux/Signux.eot");
-						src: url("../fonts/signux/Signux.eot?#iefix")
+						font-family: "Glyphio";
+						src: url("../fonts/glyphio/Glyphio.eot");
+						src: url("../fonts/glyphio/Glyphio.eot?#iefix")
 								format("embedded-opentype"),
-							url("../fonts/signux/Signux.woff2") format("woff2"),
-							url("../fonts/signux/Signux.woff") format("woff"),
-							url("../fonts/signux/Signux.svg#Signux") format("svg");
+							url("../fonts/glyphio/Glyphio.woff2") format("woff2"),
+							url("../fonts/glyphio/Glyphio.woff") format("woff"),
+							url("../fonts/glyphio/Glyphio.svg#Signux") format("svg");
 						font-weight: normal;
 						font-style: normal;
 						font-display: swap;
@@ -43,12 +43,14 @@ const Layout = (props) => {
 						--quinary-color: #ffb324;
 
 						--fore-primary-color: #303030;
+						--fore-secondary-color: #f5f5f566;
 						--back-primary-color: #f5f5f5;
 						--back-secondary-color: rgb(39, 39, 39);
 						--back-tertiary-color: rgba(69, 69, 69);
 						--back-quaternary-color: #999999;
 
 						--font-title: "Bebas Kai", sans-serif;
+						--font-logo: "Glyphio", sans-serif;
 						--font-body: "Poppins", sans-serif;
 						--font-special: "Pathway Gothic One", sans-serif;
 						--font-alter: "Cardo", serif;
@@ -80,6 +82,7 @@ const Layout = (props) => {
 					h3 {
 						margin: 0;
 						line-height: 85%;
+						font-weight: normal;
 					}
 					h1 {
 						font-size: 3rem;
@@ -127,7 +130,7 @@ const Layout = (props) => {
 				></meta>
 
 				{/*
-                
+          //MANIFESTS
 					<link rel="apple-touch-icon" href="%PUBLIC_URL%/vuxal-logo-whitecolor-192.png" />
 					<link rel="icon" href="%PUBLIC_URL%/vuxal-logo-icon-color-100.ico" />
 					<link rel="shortcut icon" href="%PUBLIC_URL%/vuxal-logo-icon-color-100.ico">

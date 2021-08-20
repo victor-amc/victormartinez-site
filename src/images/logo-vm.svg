@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1000px"
+	 height="556px" viewBox="0 0 1000 556" enable-background="new 0 0 1000 556" xml:space="preserve">
+<g id="BgDark" display="none">
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-70.4282" y1="396.082" x2="1070.4282" y2="194.9182">
+		<stop  offset="0" style="stop-color:#323232"/>
+		<stop  offset="1" style="stop-color:#1E1E1E"/>
+	</linearGradient>
+	<rect y="-204.5" display="inline" fill="url(#SVGID_1_)" width="1000" height="1000"/>
+</g>
+<g id="BgLight" display="none">
+	<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="4.882813e-004" y1="-204.499" x2="1000" y2="795.5005">
+		<stop  offset="0" style="stop-color:#F5F5F5"/>
+		<stop  offset="1" style="stop-color:#BFBFBF"/>
+	</linearGradient>
+	<rect y="-204.5" display="inline" fill="url(#SVGID_2_)" width="1000" height="1000"/>
+</g>
+<g id="Logo" display="none">
+	<g display="inline">
+		<text transform="matrix(1 0 0 1 21.0693 513.8467)" font-family="'Signux'" font-size="101.9305">VICTOR</text>
+	</g>
+	<g display="inline">
+		<text transform="matrix(1 0 0 1 448.4746 513.8467)" font-family="'Signux'" font-size="101.9305">MARTINEZ</text>
+	</g>
+	<polygon display="inline" points="543.056,270.947 618.709,134.244 788.256,440.176 695.023,440.176 618.709,302.471 
+		589.674,355.062 	"/>
+	<polygon display="inline" points="513.858,218.528 391.089,440.176 221.534,134.244 314.775,134.244 391.089,271.947 
+		467.24,134.244 	"/>
+</g>
+<g id="Logo2">
+	<polygon points="565.324,261.076 686.899,41.394 959.361,533.026 809.537,533.026 686.899,311.734 640.24,396.247 	"/>
+	<polygon points="518.404,176.838 321.114,533.026 48.64,41.394 198.478,41.394 321.114,262.682 443.489,41.394 	"/>
+</g>
+</svg>

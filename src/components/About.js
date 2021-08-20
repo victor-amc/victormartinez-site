@@ -1,6 +1,4 @@
 import React from "react";
-/** @jsx jsx */
-import { css, jsx } from "@emotion/react";
 import styled from "@emotion/styled";
 import {
 	SectionContainer,
@@ -36,9 +34,9 @@ const About = () => {
 				<p>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					Salutations! I am an <Span3>architect</Span3> by training that
-					discover in <Span1>software development</Span1> an overdose of
-					dopamine. Made in Mexico City, ensambled in Sydney and with a strong
-					interest on <Span1>data-driven-design</Span1>,{" "}
+					discover in <Span1>software development</Span1> resourceful quantities
+					of dopamine. Made in Mexico City, ensambled in Sydney and with a
+					strong interest on <Span1>data-driven-design</Span1>,{" "}
 					<Span2>human-centric-design</Span2>, <Span3>machine learning</Span3>,{" "}
 					<Span4>complex geometry</Span4> &amp; <Span1>UX design</Span1>.
 				</p>

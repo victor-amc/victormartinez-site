@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import styled from "@emotion/styled";
 
 import IconFacebook from "../images/socialmedia/facebook.svg";
@@ -8,7 +7,7 @@ import IconInstagram from "../images/socialmedia/instagram.svg";
 import IconLinkedin from "../images/socialmedia/linkedin.svg";
 import IconYoutube from "../images/socialmedia/youtube.svg";
 
-const LinkStyled = styled(Link)`
+const A = styled.a`
 	color: var(--primary-color);
 	text-align: center;
 	text-decoration: none;
@@ -86,41 +85,52 @@ const Footer = ({ title }) => {
 					<FooterSocialMediaContainer>
 						<ul>
 							<li>
-								<LinkStyled
-									to="https://www.linkedin.com/in/victoramc/"
+								<A
+									href="https://www.linkedin.com/in/victoramc/"
 									target="_blank"
+									rel="nofollow"
 								>
-									<IconLinkedin className="btn-sm btn-lkdin" />
-								</LinkStyled>
+									<IconLinkedin className="btn-sm btn-lkdin" alter="LinkedIn" />
+								</A>
 							</li>
 							<li>
-								<LinkStyled to="https://github.com/victor-amc" target="_blank">
-									<IconGithub className="btn-sm btn-repo" />
-								</LinkStyled>
-							</li>
-							<li>
-								<LinkStyled
-									to="https://www.facebook.com/victor.alejandro.mc/"
+								<A
+									href="https://github.com/victor-amc"
 									target="_blank"
+									rel="nofollow"
 								>
-									<IconFacebook className="btn-sm btn-face" />
-								</LinkStyled>
+									<IconGithub className="btn-sm btn-repo" alter="GitHub" />
+								</A>
 							</li>
 							<li>
-								<LinkStyled
-									to="https://www.instagram.com/victoralejandromc/"
+								<A
+									href="https://www.facebook.com/victor.alejandro.mc/"
 									target="_blank"
+									rel="nofollow"
 								>
-									<IconInstagram className="btn-sm btn-insta" />
-								</LinkStyled>
+									<IconFacebook className="btn-sm btn-face" alter="Facebook" />
+								</A>
 							</li>
 							<li>
-								<LinkStyled
-									to="https://www.youtube.com/channel/UCkyZq4nLFNDHadzQZMYtwNw"
+								<A
+									href="https://www.instagram.com/victoralejandromc/"
 									target="_blank"
+									rel="nofollow"
+								>
+									<IconInstagram
+										className="btn-sm btn-insta"
+										alter="Instagram"
+									/>
+								</A>
+							</li>
+							<li>
+								<A
+									href="https://www.youtube.com/channel/UCkyZq4nLFNDHadzQZMYtwNw"
+									target="_blank"
+									rel="nofollow"
 								>
 									<IconYoutube className="btn-sm btn-yout" alter="Youtube" />
-								</LinkStyled>
+								</A>
 							</li>
 						</ul>
 					</FooterSocialMediaContainer>
