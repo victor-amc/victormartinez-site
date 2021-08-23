@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { SectionContainer } from "../componentsStyled/containers";
 import TimelinePoint from "./TimelinePoint";
-import { timelineData } from "./dataTemp";
+import { graphql, useStaticQuery } from "gatsby";
 
 const TimelineContainer = styled.div`
 	height: auto;
@@ -69,6 +69,34 @@ const TimelineDiv = styled.div`
 `;
 
 const Timeline = () => {
+	const timelineContent = useStaticQuery(graphql`
+		query {
+			allDatoCmsTimepoint(sort: { order: DESC, fields: period }) {
+				nodes {
+					company
+					description
+					duties
+					id
+					period
+					title
+					other {
+						blocks
+						links
+						value
+					}
+					images {
+						fluid {
+							...GatsbyDatoCmsFluid
+						}
+					}
+				}
+			}
+		}
+	`);
+
+	const dataTimeline = timelineContent.allDatoCmsTimepoint.nodes;
+	console.log(dataTimeline);
+
 	return (
 		<SectionContainer
 			bgColor="var(--back-quaternary-color)"
@@ -81,7 +109,7 @@ const Timeline = () => {
 					<h1>Through Time</h1>
 				</TimelineHeader>
 				<TimelineDiv>
-					{timelineData.map((timePoint) => {
+					{dataTimeline.map((timePoint) => {
 						return <TimelinePoint key={timePoint.id} timePoint={timePoint} />;
 					})}
 				</TimelineDiv>
